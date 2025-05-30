@@ -15,11 +15,11 @@ A highlevel overview of the structure
 │   ├── 📄 metrics.py (Script related to the calculation of metrics used in this project)
 │   ├── 📄 prompt_types.py (Different prompt types based on dataset and language)
 │   ├── 📄 score.py (Calculation model performance based on inference by using metrics)
-│   ├── 📄 llm_judge_eval (Conducts LLM as a Judge Evaluation)
-│   ├──
-│   └── 📂 translation
-│       ├── 📄 translate.py (Translation script)
-│       └── 📄 parse_errors.py (Post translation error fix script)
+│   ├── 📄 llm_judge_eval.py (Conducts LLM as a Judge Evaluation)
+│   ├── 📄 score_aggregator.py (Helper script to organize results)
+├── 📂 translation
+│   ├── 📄 translate.py (Translation script)
+│   └── 📄 parse_errors.py (Post translation error fix script)
 ├── 📄 README.md
 └── 📄 .gitignore
 ```
@@ -75,3 +75,23 @@ python src/llm_eval_judge.py inference-outputs/openbookqa-en/
 ```
 
 in order to run the script on the inferences found from English OpenbookQA dataset.
+
+## Result Aggregation
+
+To make sure all of the results are organized properly run : 
+
+```bash
+python src/score_aggregator.py --input_dir inference-outputs/
+```
+
+This will create a centralized result folder which will look like:
+
+├── 📂 results
+│   ├── 📂 bn (Contains aggregated results for Bangla)
+│   ├── 📄 accuracy.csv
+│   ├── 📄 llm_eval.csv
+│   ├── 📄 rer.csv
+│   ├── 📂 en (Contains aggregated results for English)
+│   ├── 📄 accuracy.csv
+│   ├── 📄 llm_eval.csv
+│   └── 📄 rer.csv
