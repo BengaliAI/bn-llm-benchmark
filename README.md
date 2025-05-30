@@ -10,15 +10,17 @@ This repository contains scripts for evaluating and translating of differengt NL
 A highlevel overview of the structure
 
 ```plaintext
+├── 📂 fig (Contains figures from Exploratory Data Analysis)
 ├── 📂 src
+│   ├── 📄 eda.ipynb (script for Exploratory Data Analysis)
 │   ├── 📄 infer.py (Main inference script)
+│   ├── 📄 llm_judge_eval.py (Conducts LLM as a Judge Evaluation)
 │   ├── 📄 metrics.py (Script related to the calculation of metrics used in this project)
 │   ├── 📄 prompt_types.py (Different prompt types based on dataset and language)
-│   ├── 📄 score.py (Calculation model performance based on inference by using metrics)
-│   ├── 📄 llm_judge_eval.py (Conducts LLM as a Judge Evaluation)
 │   ├── 📄 score_aggregator.py (Helper script to organize results)
-│   ├── 📄 tokenizer.py (Script to generate tokenizer counts for different datasets)
-│   └── 📄 tokenization_summarizer.py (Summarizes tokenization findings)
+│   ├── 📄 score.py (Calculation model performance based on inference by using metrics)
+│   ├── 📄 tokenization_summarizer.py (Summarizes tokenization findings)
+│   └── 📄 tokenizer.py (Script to generate tokenizer counts for different datasets)
 ├── 📂 tokenization-results (Contains results of tokenization)
 ├── 📂 translation
 │   ├── 📄 translate.py (Translation script)
@@ -117,4 +119,6 @@ python src/tokenization_summarizer.py
 
 This creates new metrics like `avg_bytes_per_token` and `avg_normalized_seq_len` which provide more insight on tokenization. These metrics are are the same across counts-per-word and counts-per-column.
 
+## Exploratory Data Analysis
 
+Follow the `src/eda.ipynb` script to do data analysis and analyze results.
