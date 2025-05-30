@@ -17,6 +17,9 @@ A highlevel overview of the structure
 │   ├── 📄 score.py (Calculation model performance based on inference by using metrics)
 │   ├── 📄 llm_judge_eval.py (Conducts LLM as a Judge Evaluation)
 │   ├── 📄 score_aggregator.py (Helper script to organize results)
+│   ├── 📄 tokenizer.py (Script to generate tokenizer counts for different datasets)
+│   └── 📄 tokenization_summarizer.py (Summarizes tokenization findings)
+├── 📂 tokenization-results (Contains results of tokenization)
 ├── 📂 translation
 │   ├── 📄 translate.py (Translation script)
 │   └── 📄 parse_errors.py (Post translation error fix script)
@@ -86,6 +89,7 @@ python src/score_aggregator.py --input_dir inference-outputs/
 
 This will create a centralized result folder which will look like:
 
+```plaintext
 ├── 📂 results
 │   ├── 📂 bn (Contains aggregated results for Bangla)
 │   ├── 📄 accuracy.csv
@@ -95,3 +99,22 @@ This will create a centralized result folder which will look like:
 │   ├── 📄 accuracy.csv
 │   ├── 📄 llm_eval.csv
 │   └── 📄 rer.csv
+```
+
+## Tokenization
+
+To generate tokenization for different datasets run : 
+
+```bash
+python src/tokenization.py --input_dir inference-outputs/
+```
+
+This generates tokenization based on per row and per word. From that we also want to summarize findings from tokenization for which we run the script : 
+
+```bash
+python src/tokenization_summarizer.py
+```
+
+This creates new metrics like `avg_bytes_per_token` and `avg_normalized_seq_len` which provide more insight on tokenization. These metrics are are the same across counts-per-word and counts-per-column.
+
+
