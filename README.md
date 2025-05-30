@@ -12,11 +12,11 @@ A highlevel overview of the structure
 ```plaintext
 ├── 📂 src
 │   ├── 📄 infer.py (Main inference script)
-    ├── 📄 metrics.py (Script related to the calculation of metrics used in this project)
-    ├── 📄 prompt_types.py (Different prompt types based on dataset and language)
-    ├── 📄 score.py (Calculation model performance based on inference by using metrics)
-    ├──
-    ├──
+│   ├── 📄 metrics.py (Script related to the calculation of metrics used in this project)
+│   ├── 📄 prompt_types.py (Different prompt types based on dataset and language)
+│   ├── 📄 score.py (Calculation model performance based on inference by using metrics)
+│   ├── 📄 llm_judge_eval (Conducts LLM as a Judge Evaluation)
+│   ├──
 │   └── 📂 translation
 │       ├── 📄 translate.py (Translation script)
 │       └── 📄 parse_errors.py (Post translation error fix script)
@@ -63,3 +63,15 @@ After running inference, execute the scoring script with:
 python src/score.py --inference_output_directory inference-outputs/
 ```
 Be sure to update the directories you want to avoid in the `avoid_dirs` variable in the script.
+
+## LLM Eval Scoring
+
+In order to have an llm evaluate the results, we introduced an `llm_judge_eval.py` script. We are using the `gpt-4o-mini-2024-07-18` as the model to evaluate our results.
+
+After filling in your open ai api key credentials in a .env file run : 
+
+```bash
+python src/llm_eval_judge.py inference-outputs/openbookqa-en/
+```
+
+in order to run the script on the inferences found from English OpenbookQA dataset.
