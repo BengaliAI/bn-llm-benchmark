@@ -42,7 +42,7 @@ Each dataset subfolder typically includes:
   - Save outputs to `<dataset>_translated.jsonl`.
 
 - **Error handling & post-processing**  
-  `parse_errors.py` files to:
+  Post translation we do some error correction with the translation. Read the paper for more details. The `parse_errors.py` files :
   - Detect JSON decode errors in the translated output.
   - Retry translations with adjusted prompts or temperature.
   - Fix and escape malformed JSON fields.
@@ -117,7 +117,8 @@ This generates tokenization based on per row and per word. From that we also wan
 python src/tokenization_summarizer.py
 ```
 
-This creates new metrics like `avg_bytes_per_token` and `avg_normalized_seq_len` which provide more insight on tokenization. These metrics are are the same across counts-per-word and counts-per-column.
+This creates new metrics like `avg_bytes_per_token` and `avg_normalized_seq_len` which provide more insight on tokenization. These metrics are are the same across counts-per-word and counts-per-column. **Note:** These metrics have been adopted from the [paper](https://arxiv.org/abs/2402.01035).
+
 
 ## Exploratory Data Analysis
 
