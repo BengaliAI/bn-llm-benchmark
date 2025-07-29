@@ -11,6 +11,7 @@ A highlevel overview of the structure
 
 ```plaintext
 ├── 📂 fig (Contains figures from Exploratory Data Analysis)
+├── 📂 results (Inference results)
 ├── 📂 src
 │   ├── 📄 eda.ipynb (script for Exploratory Data Analysis)
 │   ├── 📄 infer.py (Main inference script)
