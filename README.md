@@ -124,3 +124,7 @@ This creates new metrics like `avg_bytes_per_token` and `avg_normalized_seq_len`
 ## Exploratory Data Analysis
 
 Follow the `src/eda.ipynb` script to do data analysis and analyze results.
+
+## Datasets
+
+The translated Bengali datasets used in this research are available [here](https://huggingface.co/collections/bengaliAI/bengali-llm-benchmark-datasets-683bd5999bb4c70bc9e83310).
